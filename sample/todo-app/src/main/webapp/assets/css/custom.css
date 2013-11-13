@@ -1,0 +1,63 @@
+/* Custom page CSS
+-------------------------------------------------- */
+#wrap>.container {
+    padding-top: 60px;
+}
+
+.container .credit {
+    margin: 20px 0;
+}
+
+code {
+    font-size: 80%;
+}
+
+/* */
+.widget-body-inner {
+    height:410px;
+}
+
+/* */
+.widget-body-inner-loading {
+    color: rgb(58, 135, 173);
+    background-color: rgba(217, 237, 247, 0.5);
+    border-color: rgb(188, 232, 241) ;
+    height:410px;
+}
+
+.absolute-center {
+    margin: auto;
+    position: absolute;
+    width:200px;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+
+.widget-body-inner-200 {
+    height:200px;
+}
+
+.widget-toolbox {
+    background-color: transparent;
+}
+.pagination {
+    margin: 5px;
+}
+
+.typ {
+    color: #606
+}
+.kwd {
+    color: #008;
+    font-weight: bold;
+}
+.lit {
+    color: #066;
+}
+.rem {
+    color: #227100;
+}
+
+.hid {
+    color: rgb(160, 160, 160);
+}

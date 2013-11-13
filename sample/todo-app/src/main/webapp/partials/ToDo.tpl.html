@@ -1,0 +1,66 @@
+<div class="widget-body">
+	<div class="widget-body-inner">	
+		<h3 class="row-fluid header smaller dark">
+			<span class="span6">
+				<strong>ToDo</strong></a>
+			</span>
+			<span ng-show="todo.complete" class="label label-large label-success pull-right">Completed</span>					
+		</h3>
+		
+		<div class="control-group">
+			<alert ng-repeat="alert in alerts"  type="alert.type">
+				<strong><i class="{{alert.icon}}"></i>&nbsp;{{alert.msg}}</strong>
+			</alert>
+		</div>
+		
+		<div class="control-group">
+			<label class="control-label" for="description">Description</label>
+			<input type="text" id="description" ng-model="todo.description">
+			<a ng-show="errors.description">					
+			<span class="label label-important" popover-placement="right" popover="{{errors.description}}" popover-trigger="mouseenter">
+			ouch!
+			</span>
+			</a>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="dueby">DueBy</label> 
+				<input type="text" id="dueBy" datepicker-popup="MM/dd/yyyy" show-weeks="false" ng-model="todo.dueBy" > 
+				<a ng-show="errors.dueBy">					
+				<span class="label label-important" popover-placement="right" popover="{{errors.dueBy}}" popover-trigger="mouseenter">
+					ouch!
+				</span>
+			</a>	
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="category">Category</label> 
+			<select id="category" ng-model="todo.category">
+				<option value="Domestic">Domestic</option>
+				<option value="Professional">Professional</option>
+				<option value="Other">Other</option>
+			</select>
+			<a ng-show="errors.category">					
+				<span class="label label-important" popover-placement="right" popover="{{errors.description}}" popover-trigger="mouseenter">
+					ouch!
+				</span>
+			</a>
+		</div>
+	</div>
+	<div class="widget-toolbox padding-2 clearfix transparent">
+		<div class="space-6"></div>
+			<button class="btn btn-small btn-primary" ng-click="update()">
+				<i class="icon-ok"></i> 
+				Save
+			</button>
+		<button class="btn btn-small btn-primary" ng-disabled="todo.complete" ng-click="complete()">
+			<i class="icon-thumbs-up"></i> 
+			Complete
+		</button>
+		<button class="btn btn-small btn-primary" ng-disabled="!todo.complete" ng-click="incomplete()">
+			<i class="icon-thumbs-down"></i> 
+			Incomplete
+		</button>
+	
+	</div>			
+</div>	
+	
+

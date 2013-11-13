@@ -1,0 +1,21 @@
+import gape.lang.*
+
+
+module dom version 1.0 target appengine-jdo {
+	object ToDo requires dom.ToDoContract {
+		property String description
+		property String category 
+		property Date dueBy
+		property Boolean complete allows read
+		property String notes
+		virtual  String title
+		property Set<ToDo> dependencies
+		virtual  List<ToDo> similarTo
+		virtual  List<ToDo> eligible	
+		method   Boolean changeStatus(Boolean status) for Complete, Incomplete
+		interaction Complete { }
+		interaction Incomplete { }
+	}
+	
+}
+

@@ -1,0 +1,41 @@
+<div class="widget-box transparent">
+	<div class="widget-header">
+		<h2 class="dark">
+			<strong>All ToDos </strong>
+		</h2>
+	</div>
+	<div class="widget-body">
+		<div id="todos-body-inner" ng-hide="loading" class="widget-body-inner" style="display: block;">
+			<table id="sample-table-1" class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Description</th>
+						<th>Category</th>
+						<th>Complete</th>
+						<th>Due by</th>
+					</tr>
+				</thead>
+			
+				<tbody>
+			   <tbody>
+					<tr ng-repeat="i in todos">
+						<td><a ng-click="openToDo(i.id,i.description)">{{ i.description }}</a></td>
+						<td>{{i.category}}</td>
+						<td align="center"><span ng-show="i.complete" class="label label-success">Completed</span></td>
+						<td>{{i.dueBy | date:'MM/dd/yyyy'}}</td>
+			        </tr>
+			    </tbody>
+			</table>
+		</div>	
+		<div id="todos-body-inner" ng-show="loading" class="widget-body-inner-loading" style="display: block;">
+			<div class="widget-toolbox padding-2 clearfix transparent">
+				<div class="progress progress-info progress-striped active absolute-center">
+    				<div class="bar" style="width: 100%;">Loading</div>
+				</div>		
+			</div>
+		</div>
+		<pagination boundary-links="true" total-items="totalItems"  page="currentPage" on-select-page="selectPage(page)" class="pagination-small pull-right" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+	</div>	
+</div>
+
+

@@ -1,0 +1,9 @@
+module gape.lang version 1.0 {
+	object Date {}
+	object String {}
+	object Boolean {}
+	object boolean {}
+	object BigDecimal {}
+	object Set {}
+	object List {}	
+}

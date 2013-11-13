@@ -1,0 +1,110 @@
+<!-- ToDo Controller -->  
+<div class="widget-box transparent" style="opacity: 1;" ng-controller="ToDoCtrl">
+		<div class="span4">
+			<div ng-include='"/partials/ToDo.tpl.html"'></div>
+		</div>		
+		<div class="span8">
+			<div class="widget-body">
+				<div class="widget-body-inner-200" style="display: block;">
+					<h3 class="row-fluid header smaller dark">
+						<span class="span6">
+							&nbsp;<strong>Dependencies</strong>
+						</span>
+						<span class="btn-group pull-right">
+						    <button class="btn btn-info btn-small dropdown-toggle" data-toggle="dropdown">Actions
+		        				<span class="caret"></span>
+		    				</button>
+		    				<ul class="dropdown-menu">
+								<li><a ng-click="addDependency()">Add Dependency</a></li>
+							</ul>
+						</span>
+					</h3>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Description</th>
+								<th>Category</th>
+								<th>Complete</th>
+								<th>Due by</th>
+								<th></th>							
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="i in dependencies">
+								<td><a ng-click="openToDo(i.id,i.description)">{{
+										i.description }}</a></td>
+								<td>{{i.category}}</td>
+								<td align="center"><span ng-show="i.complete"
+									class="label label-success">Completed</span></td>
+								<td>{{i.dueBy | date:'MM/dd/yyyy'}}</td>
+								<td  width="80px" align="center"><a ng-click="removeDependency(i.id)"><i class="icon-trash"></i></a></td>
+							</tr>
+						</tbody>
+					</table>						
+				</div>
+			</div>
+
+			<div class="widget-body">
+				<div class="widget-body-inner-200" style="display: block;">
+					<h3 class="row-fluid header smaller dark">						
+						<span class="span6">
+							&nbsp;<strong>Similar</strong>
+						</span>
+					</h3>			
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Description</th>
+								<th>Category</th>
+								<th>Complete</th>
+								<th>Due by</th>
+								<th></th>							
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="s in similar">
+								<td><a ng-click="openToDo(s.id,s.description)">{{s.description }}</a></td>
+								<td>{{s.category}}</td>
+								<td><span ng-show="s.complete"
+									class="label label-success">Completed</span></td>
+								<td>{{s.dueBy | date:'MM/dd/yyyy'}}</td>
+								<td>&nbsp;&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>						
+				</div>
+			</div>	
+		</div>
+	</div>	
+	<script type="text/ng-template" id="/partials/addDependency.tpl.html">
+        <div class="modal-header">
+            <h3>Add Dependency</h3>
+        </div>
+        <div class="modal-body">
+			 <table class="table table-hover" >
+            <thead>
+                <tr>
+					<th>&nbsp;#&nbsp;</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Complete</th>
+					<th>Due by</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="i in todos">
+					<td><i ng-show="selected == i.id" class="green icon-ok"></i></td>                
+                    <td><a ng-click="select(i.id)">{{ i.description }}</a></td>
+                    <td>{{i.category}}</td>
+                    <td align="center"><span ng-show="i.complete" class="label label-success">Completed</span></td>
+                    <td>{{i.dueBy | date:'MM/dd/yyyy'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-small btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-small btn-primary" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</div>

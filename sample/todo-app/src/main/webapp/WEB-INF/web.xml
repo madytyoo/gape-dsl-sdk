@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+<listener>
+        <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>ShiroFilter</filter-name>
+        <filter-class>
+            org.apache.shiro.web.servlet.ShiroFilter
+        </filter-class>
+        <!-- no init-param means load the INI config
+            from classpath:shiro.ini -->
+    </filter>
+    <filter-mapping>
+        <filter-name>ShiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+    </listener>
+    
+     <!-- used by RestEasy to determine the JAX-RS resources and other related configuration -->
+    <context-param>
+        <param-name>javax.ws.rs.Application</param-name>
+        <param-value>com.mylaensys.gape.todo.ToDoApplication</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>resteasy.servlet.mapping.prefix</param-name>
+        <param-value>/rest</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>RestfulObjectsRestEasyDispatcher</servlet-name>
+        <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RestfulObjectsRestEasyDispatcher</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+    
+
+    <servlet>
+        <servlet-name>InstallerServlet</servlet-name>
+        <servlet-class>dom.InstallerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InstallerServlet</servlet-name>
+        <url-pattern>/installer</url-pattern>
+    </servlet-mapping>
+    
+
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>
