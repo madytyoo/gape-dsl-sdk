@@ -26,7 +26,7 @@ Copy the files from __SDK /plugins__ directory files to the __Eclipse /plugins__
 The sample ToDo Application comes with a Maven pom.xml file. You must manually add the __/lib/gape-runtime-1.0.0.jar__ 
 to local repository using: 
 
-    mvn install:install-file -Dfile=/home/madytyoo/tmp/myapplication/gape-dsl-2.0.jar -DgroupId=com.mylaensys.gape.dsl.runtime  -DartifactId=gape -Dversion=1.0 -Dpackaging=jar
+    mvn install:install-file -Dfile=/<path-to-sdk>/lib/gape-runtime-1.0.0.jar -DgroupId=com.mylaensys.gape.dsl.runtime  -DartifactId=gape -Dversion=1.0 -Dpackaging=jar
 
 
 To build and start the sample ToDo application, use the [App Engine Maven Plugin](http://code.google.com/p/appengine-maven-plugin/) that is already included in this demo. Just run the command.
