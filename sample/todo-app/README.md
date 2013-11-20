@@ -17,3 +17,5 @@ To see all the available goals for the App Engine plugin, run
 
     mvn help:describe -Dplugin=appengine
 
+
+/opt/apache-maven-3.1.1/bin/mvn install:install-file -Dfile=/home/madytyoo/tmp/myapplication/gape-dsl-2.0.jar -DgroupId=com.mylaensys.gape.dsl -DartifactId=gape -Dversion=2.0 -Dpackaging=jar
