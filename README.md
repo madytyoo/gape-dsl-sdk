@@ -11,6 +11,10 @@ The DSL includes explicit information about what code and object belong to and p
 which makes it useful to keep track of the system functionalities.
 GAPE is based on [Xtext](http://www.eclipse.org/Xtext/) which provides a comfortable development environment integrated with [Eclipse](http://www.eclipse.org/).
 
+An quick __overview__ of the GAPE DSL is available on [YouTube](https://www.youtube.com/watch?v=I2gGXrz0UC0&vq=hd720),
+to become familiar with the DSL syntax play with the [GAPE's Anatomy](http://gape-todo.appspot.com/what-is-gape.html).
+
+
 ## Installation Instructions
 GAPE is implemented with Xtext, so you must have Xtext up and running in order to proceed.
 There are two easy ways to get Xtext:
@@ -23,6 +27,10 @@ You can find detailed information on [Xtext website](http://www.eclipse.org/Xtex
 Copy the files from __SDK /plugins__ directory files to the __Eclipse /plugins__ directory, then restart Eclipse. 
 
 ## Sample ToDo Application
+The __ToDo Application__ included in the SDK is an example written in GAPE of  __Single Page Application__ based on [Boostrap](http://getbootstrap.com/) and 
+[AngularJS](http://angularjs.org/). 
+
+
 The sample ToDo Application comes with a Maven pom.xml file. You must manually add the __/lib/gape-runtime-1.0.0.jar__ 
 to local repository using: 
 
